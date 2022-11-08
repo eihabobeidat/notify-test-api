@@ -82,7 +82,7 @@ const start = async () => {
   try {
     var port_number = process.env.PORT || 3000;
     console.log('server listening at', port_number);
-    await fastify.listen(port_number);
+    await fastify.listen({ port: port_number });
   } catch (err) {
     fastify.log.error('Eihab check this out ===> ',err);
     process.exit(1);
