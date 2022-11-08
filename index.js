@@ -77,5 +77,5 @@ fastify.post("/alarm", async (request) => {
 });
 
 // Run the server
-var port_number = server.listen(process.env.PORT || 3000);
+var port_number = process.env.PORT || 3000;
 fastify.listen(port_number);
