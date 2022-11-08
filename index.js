@@ -60,7 +60,7 @@ async function sendPartialNotification(token) {
 
 // Declare a notification route
 fastify.get("/", async (request) => {
-  return "works fine, OK";
+  return "works fine abo al SOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOS, OK";
 });
 
 // Declare a notification route
