@@ -77,15 +77,16 @@ fastify.post("/alarm", async (request) => {
   return "OK";
 });
 
+const port_number = process.env.PORT || 3000;
+
 // Run the server
 const start = async () => {
   try {
-    var port_number = process.env.PORT || 3000;
     console.log('server listening at', port_number);
-    await fastify.listen({ port: port_number });
+    await fastify.listen(port_number, '0.0.0.0');
   } catch (err) {
-    fastify.log.error('Eihab check this out ===> ',err);
-    process.exit(1);
+    fastify.log.error('Eihab check this out ===> ', 'port:', port_number, '  **  error: ',err);
+    //process.exit(1);
   }
 };
 start();
