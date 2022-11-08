@@ -1,5 +1,5 @@
 const admin = require("firebase-admin");
-const fastify = require("fastify")({ logger: true, keepAliveTimeout: 120000 });
+const fastify = require("fastify")({ logger: true, keepAliveTimeout: 12000000 });
 const util = require("util");
 const serviceAccount = require("./customerapp-70a7d-firebase-adminsdk-qpv6n-b907d5f9b4.json");
 
