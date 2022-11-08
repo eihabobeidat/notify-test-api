@@ -1,5 +1,5 @@
 const admin = require("firebase-admin");
-const fastify = require("fastify")({ logger: true, keepAliveTimeout: 5000 });
+const fastify = require("fastify")({ logger: true, keepAliveTimeout: 120000 });
 const util = require("util");
 const serviceAccount = require("./customerapp-70a7d-firebase-adminsdk-qpv6n-b907d5f9b4.json");
 
@@ -81,6 +81,7 @@ fastify.post("/alarm", async (request) => {
 const start = async () => {
   try {
     var port_number = process.env.PORT || 3000;
+    console.log('server listening at', port_number);
     await fastify.listen(port_number);
   } catch (err) {
     fastify.log.error('Eihab check this out ===> ',err);
