@@ -3,23 +3,22 @@ const fastify = require("fastify")({ logger: true, keepAliveTimeout: 5000 });
 const util = require("util");
 const serviceAccount = require("./customerapp-70a7d-firebase-adminsdk-qpv6n-b907d5f9b4.json");
 
+// fastify.register(require("@fastify/cors"), (instance) => {
+//   return (req, callback) => {
+//     const corsOptions = {
+//       // This is NOT recommended for production as it enables reflection exploits
+//       origin: true,
+//     };
 
-fastify.register(require('@fastify/cors'), (instance) => {
-  return (req, callback) => {
-    const corsOptions = {
-      // This is NOT recommended for production as it enables reflection exploits
-      origin: true
-    };
+//     // do not include CORS headers for requests from localhost
+//     if (/^localhost$/m.test(req.headers.origin)) {
+//       corsOptions.origin = false;
+//     }
 
-    // do not include CORS headers for requests from localhost
-    if (/^localhost$/m.test(req.headers.origin)) {
-      corsOptions.origin = false
-    }
-
-    // callback expects two parameters: error and options
-    callback(null, corsOptions)
-  }
-})
+//     // callback expects two parameters: error and options
+//     callback(null, corsOptions);
+//   };
+// });
 
 const delay = util.promisify(setTimeout);
 
@@ -78,13 +77,5 @@ fastify.post("/alarm", async (request) => {
 });
 
 // Run the server
-const start = async () => {
-  try {
-    var port_number = server.listen(process.env.PORT || 3000);
-    await fastify.listen(port_number);
-  } catch (err) {
-    fastify.log.error('Eihab check this out ===> ',err);
-    process.exit(1);
-  }
-};
-start();
+var port_number = server.listen(process.env.PORT || 3000);
+fastify.listen(port_number);
