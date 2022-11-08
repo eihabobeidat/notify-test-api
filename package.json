@@ -2,6 +2,9 @@
   "name": "notify-test-api",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "16.17.0"
+    },
   "main": "index.js",
   "scripts": {
   "start": "node index.js"
